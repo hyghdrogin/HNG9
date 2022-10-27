@@ -25,22 +25,10 @@ app.get("/", (req, res) => {
   }
 });
 
-app.use((req, res) => res.status(404).send({
-  status: "error",
-  error: "Not found",
-  message: "Route not correct kindly check url.",
-}));
-
 (async () => {
   app.listen(port, async () => {
     console.log(` API listening on ${port}`);
   });
 })();
-
-process.on("unhandledRejection", (error: any) => {
-  console.log("FATAL UNEXPECTED UNHANDLED REJECTION!", error.message);
-  console.error("\n\n", error, "\n\n");
-  //  throw error;
-});
 
 export default app;
